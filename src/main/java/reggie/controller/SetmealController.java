@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 import reggie.common.R;
 import reggie.dto.DishDto;
@@ -33,7 +35,8 @@ public class SetmealController {
     private SetmealDishService setmealDishService;
 
      @PostMapping
-    public R<String> save(@RequestBody SetmealDto setmealDto) {
+     @CacheEvict(value = "setmealCache", allEntries = true)
+     public R<String> save(@RequestBody SetmealDto setmealDto) {
          log.info("套餐信息{}",setmealDto);
          setmealService.saveWithDish(setmealDto);
          return R.success("新增套餐成功" );
@@ -70,6 +73,7 @@ public class SetmealController {
 
 
      @DeleteMapping
+     @CacheEvict(value = "setmealCache", allEntries = true)
      public R<String> delete(@RequestParam List<Long> ids) {
          log.info("删除ID为{}的套餐",ids);
          setmealService.removeWithDish(ids);
@@ -78,6 +82,7 @@ public class SetmealController {
 
 
      @GetMapping("/list")
+     @Cacheable(value = "setmaelCache",key = "#setmeal.categoryId + '_' + #setmeal.status")
      public R<List<Setmeal>> list(Setmeal setmeal) {
          LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
          queryWrapper.eq(setmeal.getCategoryId() != null, Setmeal::getCategoryId,setmeal.getCategoryId());
