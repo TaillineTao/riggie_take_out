@@ -1,5 +1,5 @@
 # riggie_take_out
-Reggie Food Delivery (Backend Project: Spring Boot + MyBatis Plus + Redis)
+# Reggie Food Delivery (Backend Project: Spring Boot + MyBatis Plus + Redis)
 
 This project is a software product specifically designed for the food and beverage industry (restaurants and hotels), consisting of a system management backend and a mobile application.
 
