@@ -12,7 +12,8 @@ managed resources based on the Spring framework, seamlessly integrated Spring MV
 • Utilized MySQL as the relational database for storing core business data, simplified persistence layer development using MyBatis Plus, and introduced Redis as an in-memory database for caching data to improve access efficiency.
 
 • Implemented version control using Git for team collaboration and code management, performed project building and dependency management using Maven, and ensured the correctness of functionality implementation through unit testing with JUnit.
-
+<img width="397" alt="Screenshot 2024-11-10 at 18 27 38" src="https://github.com/user-attachments/assets/e0da0682-5189-4717-9091-a622f9d4f6bf">
+<img width="728" alt="Screenshot 2024-11-10 at 18 27 50" src="https://github.com/user-attachments/assets/508b2b35-0d2d-490f-bef4-c5a4915c4375">
 
 # 瑞吉外卖 (后端项目:Springboot + Mybatis plus + Redis)
 
